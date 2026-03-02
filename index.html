@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Language" content="cs">
+  <title>Document</title>
+  <meta name="description" content="">
+  <meta name="Copyright" content="Copyright © 2019 CENTRAL GROUP, a.s.">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="icon" href="https://www.central-group.cz/wms3/favicon.ico">
+  <!-- ! Jquery - Outdated version from 2013 -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <!-- ! Fancybox - Outdated version from 2019, deprecated and superseded by Fancyapps UI -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.6/dist/jquery.fancybox.min.js" async defer></script>
+  <!-- ! App styles -->
+  <link as="style" href="https://www.central-group.cz/wms3/css/app.7f0f7718.css" rel="preload">
+  <link as="style" href="https://www.central-group.cz/wms3/css/chunk-vendors.58a2f362.css" rel="preload">
+  <!-- ! App scripts -->
+  <!-- <link as="script" href="https://www.central-group.cz/wms3/js/app.f9b11557.js" rel="preload"> -->
+  <!-- <link as="script" href="https://www.central-group.cz/wms3/js/chunk-vendors.382e2233.js" rel="preload"> -->
+  <!-- ! App styles (again) -->
+  <link href="https://www.central-group.cz/wms3/css/chunk-vendors.58a2f362.css" rel="stylesheet">
+  <link href="https://www.central-group.cz/wms3/css/app.7f0f7718.css" rel="stylesheet">
+</head>
+
+<body>
+  <noscript><strong>We're sorry but webclient doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript>
+
+  <div>
+    <div data-v-63f98856></div>
+    <div data-v-5782d946>
+      <a href="#main" class="sr-only">skip to main content</a>
+      <header class="head">
+        <!-- * header content -->
+      </header>
+      <main id="main" class="main">
+        <div>
+          <div>
+            <div id="wms-blocks">
+              <!-- Render blocks here -->
+            </div>
+          </div>
+        </div>
+      </main>
+      <footer>
+        <!-- * footer content -->
+      </footer>
+    </div>
+  </div>
+
+  <!-- ! App scripts -->
+  <!-- <script src="https://www.central-group.cz/wms3/js/chunk-vendors.382e2233.js"></script> -->
+  <!-- <script src="https://www.central-group.cz/wms3/js/app.f9b11557.js"></script> -->
+  <!-- ! Font Awesome Kit -->
+  <script type="text/javascript" src="https://kit.fontawesome.com/0fd8c3bac9.js"></script>
+  <!-- TODO: Font Awesome Styles -->
+  <script type="module">
+    import { loadContent } from './wms/vite-wms.js';
+    import { initRouter } from './wms/hash-router.js'
+
+    initRouter();
+
+    // ? should we await ?
+    loadContent("header.head", "./wms/header.html", true)
+    loadContent("footer", "./wms/footer.html")
+
+  </script>
+</body>
+
+</html>

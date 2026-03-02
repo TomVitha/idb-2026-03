@@ -1,0 +1,41 @@
+{
+  "404": {
+    "title": "404",
+    "description": "404 - Stránka neexistuje",
+    "blocks": [
+      {
+        "src": "404"
+      }
+    ]
+  },
+  "index": {
+    "title": "Home Page",
+    "description": "Welcome to the Home Page",
+    "blocks": [
+      {
+        "type": "meta",
+        "src": "metaaa"
+      },
+      {
+        "type": "content",
+        "class": "klasa",
+        "id": "ajdy",
+        "src": "kontent"
+      }
+    ]
+  },
+  "about-us": {
+    "title": "About Us",
+    "description": "Learn more about us",
+    "blocks": [
+      {
+        "type": "meta",
+        "src": "metaaa"
+      },
+      {
+        "type": "content",
+        "src": "about-us-content"
+      }
+    ]
+  }
+}

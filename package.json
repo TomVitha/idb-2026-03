@@ -1,0 +1,12 @@
+{
+	"name": "vite-wms-template",
+	"type": "module",
+	"scripts": {
+		"dev": "vite --host",
+		"build": "vite build",
+		"preview": "vite preview"
+	},
+	"devDependencies": {
+		"vite": "latest"
+	}
+}
