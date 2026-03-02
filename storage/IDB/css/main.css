@@ -8,8 +8,8 @@
   --color-bordeaux: #8c164d;
   --color-blue: #20234c;
   --color-blue-dark: #0e1237;
-  --color-green: #2e8429;
-  --color-red: #c51a1b;
+  --color-green: #37a644;
+  --color-red: #b53937;
   /* Grays */
   --color-gray: #eaeaea;
   --color-gray-dark: #4D4D4D;
@@ -20,8 +20,8 @@
   --color-secondary: #a26578;
   --color-tertiary: #ffffff;
   /* Layout */
-  /*--color-pros: var(--color-green);*/
-  --color-pros: var(--color-blue, #20234c);
+  /* --color-pros: var(--color-blue, #20234c); */
+  --color-pros: var(--color-green);
   --color-cons: var(--color-red);
 
   --color-headings: var(--color-primary);
@@ -48,11 +48,14 @@
   /* border-radius: inherit; */
 }
 
-html {
-  scroll-behavior: smooth;
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
-[hidden] {
+[hidden][hidden][hidden][hidden][hidden][hidden][hidden] {
   display: none !important;
 }
 
@@ -330,17 +333,17 @@ a.btn:hover {
 /** COLORS **/
 .btn[class*="--yellow"] {
   --btn-theme: var(--color-yellow, #ffed00);
-  --btn-theme-complementary: var(--color-blue, #20234c);
+  --btn-theme-complementary: var(--color-blue);
 }
 
 .btn[class*="--blue"] {
-  --btn-theme: var(--color-blue, #20234c);
+  --btn-theme: var(--color-blue);
   --btn-theme-complementary: #fff;
 }
 
 .btn[class*="--white"] {
   --btn-theme: white;
-  --btn-theme-complementary: var(--color-primary, var(--color-blue, #20234c));
+  --btn-theme-complementary: var(--color-primary, var(--color-blue));
 }
 
 .btn[class*="--black"] {
@@ -679,13 +682,13 @@ section.narrow {
 
 /** Section colors **/
 .bg-primary {
-  background-color: var(--color-primary, var(--color-blue, #20234c));
+  background-color: var(--color-primary, var(--color-blue));
   color: white;
   --color-text-behind: #0e1237;
 }
 
 .bg-bordeaux {
-  background-color: var(--color-blue, #20234c);
+  background-color: var(--color-bordeaux);
   color: white;
   --color-text-behind: #0e1237;
 }
@@ -705,7 +708,7 @@ section.narrow {
 }
 
 .bg-blue {
-  background-color: var(--color-blue, #20234c);
+  background-color: var(--color-blue);
   color: white;
 }
 
@@ -1050,7 +1053,12 @@ header menu a {
   display: none;
 }
 
-.check-marks, .pros {
+.check-marks {
+  --list-marker-color: var(--color-primary);
+  --list-marker-img: url('https://iniciativa-bydleni.cz/storage/IDB/img/icons/check-mark-primary.svg');
+}
+
+.pros {
   --list-marker-color: var(--color-pros);
   --list-marker-img: url('https://iniciativa-bydleni.cz/storage/IDB/img/icons/check-mark-primary.svg');
 }
@@ -1076,13 +1084,13 @@ header menu a {
 } */
 
 /* Color heading preceding pros/cons list */
-:is(h4):has(+.pros), .pros strong {
+/* :is(h4):has(+.pros), .pros strong {
   color: var(--color-pros);
 }
 
 :is(h4):has(+.cons), .cons strong {
   color: var(--color-cons);
-}
+} */
 
 
 /* Trapezoid */
