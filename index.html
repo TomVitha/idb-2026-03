@@ -48,6 +48,21 @@
       <footer>
         <!-- * footer content -->
       </footer>
+      <!-- * shared scripts block -->
+      <div>
+        <script src="https://www.central-group.cz/storage/IDB/js/idb.js"></script>
+        <script src="https://www.central-group.cz/storage/IDB/js/scroll-placex.js"></script>
+
+        <script>
+          document.querySelectorAll('.dropdown > a').forEach(trigger => {
+            trigger.addEventListener('click', e => {
+              e.preventDefault();
+              const parent = trigger.parentElement;
+              parent.classList.toggle('open');
+            });
+          });
+        </script>
+      </div>
     </div>
   </div>
 
@@ -65,7 +80,7 @@
 
     // ? should we await ?
     loadContent("header.head", "./wms/header.html", true)
-    loadContent("footer", "./wms/footer.html")
+    loadContent("footer", "./wms/footer.html", true)
 
   </script>
 </body>

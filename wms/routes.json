@@ -10,32 +10,24 @@
   },
   "index": {
     "title": "Home Page",
-    "description": "Welcome to the Home Page",
     "blocks": [
-      {
-        "type": "meta",
-        "src": "metaaa"
-      },
-      {
-        "type": "content",
-        "class": "klasa",
-        "id": "ajdy",
-        "src": "kontent"
-      }
+      { "src": "idb-meta", "type": "meta" },
+      { "src": "index-hero" },
+      { "src": "index" }
     ]
   },
-  "about-us": {
-    "title": "About Us",
-    "description": "Learn more about us",
+  "poradenstvi-financovani": {
+    "title": "Poradenství a financování výstavby dostupných bytů",
     "blocks": [
-      {
-        "type": "meta",
-        "src": "metaaa"
-      },
-      {
-        "type": "content",
-        "src": "about-us-content"
-      }
+      { "src": "idb-meta", "type": "meta" },
+      { "src": "poradenstvi-financovani" }
+    ]
+  },
+  "design-build": {
+    "title": "Systém DESIGN-BUILD a postup při jeho využití",
+    "blocks": [
+      { "src": "idb-meta", "type": "meta" },
+      { "src": "design-build" }
     ]
   }
 }
