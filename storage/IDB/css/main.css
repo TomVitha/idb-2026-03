@@ -1158,6 +1158,7 @@ header menu a {
   left: 0.5rem;
   top: 50%;
   translate: 0 -50%;
+  margin: 0;
 }
 
 /** Letters Counter **/
