@@ -57,5 +57,12 @@
       { "src": "idb-meta", "type": "meta" },
       { "src": "priprava" }
     ]
+  },
+  "analyza": {
+    "title": "ANALÝZA: Jak zlepšit dostupnost bydlení v ČR",
+    "blocks": [
+      { "src": "idb-meta", "type": "meta" },
+      { "src": "analyza" }
+    ]
   }
 }

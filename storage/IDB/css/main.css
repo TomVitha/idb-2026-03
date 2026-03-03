@@ -9,7 +9,8 @@
   --color-blue: #20234c;
   --color-blue-dark: #0e1237;
   --color-green: #37a644;
-  --color-red: #b53937;
+  /* --color-red: #b53937; */
+  --color-red: #c8242b;
   /* Grays */
   --color-gray: #eaeaea;
   --color-gray-dark: #4D4D4D;
@@ -29,7 +30,7 @@
   --wall-bg-overlay: linear-gradient(#ffffffb3);
 
   /** Misc **/
-  accent-color: var(--color-primary, var(--color-blue, #20234c));
+  accent-color: var(--color-primary);
   interpolate-size: allow-keywords;
 }
 
