@@ -26,7 +26,7 @@
   --color-cons: var(--color-red);
 
   --color-headings: var(--color-primary);
-  --font-size-text-behind: 12rem;
+  --font-size-text-behind: 9rem;
   --wall-bg-overlay: linear-gradient(#ffffffb3);
 
   /** Misc **/
@@ -112,7 +112,7 @@ img, picture, svg, video, canvas {
 
 figure {
   position: relative;
-  margin: 0;
+  margin: 1rem 0;
 }
 
 address {
@@ -572,19 +572,12 @@ hgroup p {
   top: 0;
   /* translate: -40px 0; */
   translate: -15px 0;
-  font-size: var(--font-size-text-behind, 12rem);
+  font-size: var(--font-size-text-behind);
   font-weight: 700;
   line-height: 0.7;
   white-space: nowrap;
   z-index: -1;
 }
-
-@media screen and (max-width: 1199px) {
-  [data-text-behind]:not([data-text-behind=""])::before {
-    /* translate: -15px 0; */
-  }
-}
-
 
 p {
   margin-block: 1rem;
@@ -1031,7 +1024,7 @@ header menu a {
   /* WIP */
   background: var(--list-marker-color);
   mask-image: var(--list-marker-img);
-  margin-top: 0.25rem;
+  /* margin-top: 0.25rem; */
 }
 
 @media (min-width: 992px) {

@@ -12,7 +12,6 @@
     "title": "Home Page",
     "blocks": [
       { "src": "idb-meta", "type": "meta" },
-      { "src": "index-hero" },
       { "src": "index" }
     ]
   },
@@ -63,6 +62,20 @@
     "blocks": [
       { "src": "idb-meta", "type": "meta" },
       { "src": "analyza" }
+    ]
+  },
+  "nabidka-sluzeb": {
+    "title": "Nabídka služeb, materiálů a technologií pro dostupné bydlení",
+    "blocks": [
+      { "src": "idb-meta", "type": "meta" },
+      { "src": "nabidka-sluzeb" }
+    ]
+  },
+  "kontakt": {
+    "title": "Kontakt",
+    "blocks": [
+      { "src": "idb-meta", "type": "meta" },
+      { "src": "kontakt" }
     ]
   }
 }
