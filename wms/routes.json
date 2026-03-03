@@ -50,5 +50,12 @@
       { "src": "idb-meta", "type": "meta" },
       { "src": "technicke-varianty" }
     ]
+  },
+  "priprava": {
+    "title": "Příprava a rozvoj území a pozemku pro výstavbu ",
+    "blocks": [
+      { "src": "idb-meta", "type": "meta" },
+      { "src": "priprava" }
+    ]
   }
 }
