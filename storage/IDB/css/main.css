@@ -689,6 +689,10 @@ section.narrow {
   margin-block: 1.5rem;
 }
 
+.text-primary {
+  color: var(--color-primary)
+}
+
 /** Section colors **/
 .bg-primary {
   background-color: var(--color-primary, var(--color-blue));
@@ -1195,6 +1199,7 @@ header menu a {
   text-transform: uppercase;
 }
 
+/* DEPRECATED */
 /* Big icon (check, cross) */
 .big-icon-bg::before {
   content: "";
@@ -2299,6 +2304,11 @@ dialog::-webkit-backdrop {
   cursor: pointer;
 }
 
+.video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16/9;
+}
 
 
 /* * eko-cards * */
