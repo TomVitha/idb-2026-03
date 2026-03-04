@@ -21,7 +21,7 @@
         Národní rozvojovou bankou (NRB) a Svazem měst a obcí (SMO).
       </p>
       <!-- TODO: Animated carousel -->
-      <div class="members">
+      <!-- <div class="members">
         <figure class="member">
           <a href="https://central-group.cz" target="_blank">
             <img src="https://iniciativa-bydleni.cz/storage/IDB/img/logos/logo-cg.svg" alt="CENTRAL GROUP">
@@ -52,6 +52,21 @@
             <img src="https://www.central-group.cz/storage/IDB/img/logos/logo-loxia.svg" alt="LOXIA">
           </a>
         </figure>
+      </div> -->
+      <div class="logo-carousel">
+        <div class="logo-viewport" id="viewport">
+          <div class="logo-track" id="track">
+            <a href="#" class="logo-item"><img src="https://iniciativa-bydleni.cz/storage/IDB/img/logos/logo-cg.svg" alt=""></a>
+            <a href="#" class="logo-item"><img src="https://iniciativa-bydleni.cz/storage/IDB/img/logos/logo-cs.svg" alt=""></a>
+            <a href="#" class="logo-item"><img src="https://iniciativa-bydleni.cz/storage/IDB/img/logos/logo-kpmg.svg" alt=""></a>
+            <a href="#" class="logo-item"><img src="https://iniciativa-bydleni.cz/storage/IDB/img/logos/logo-havel.svg" alt=""></a>
+            <a href="#" class="logo-item"><img src="https://iniciativa-bydleni.cz/storage/IDB/img/logos/logo-ncs.svg" alt=""></a>
+            <a href="#" class="logo-item"><img src="https://www.central-group.cz/storage/IDB/img/logos/logo-loxia.svg" alt=""></a>
+            <a href="#" class="logo-item"><img src="https://iniciativa-bydleni.cz/storage/IDB/img/logos/logo-csob.png" alt=""></a>
+            <a href="#" class="logo-item"><img src="https://iniciativa-bydleni.cz/storage/IDB/img/logos/logo-wienergerber.svg" alt=""></a>
+            <a href="#" class="logo-item"><img src="https://iniciativa-bydleni.cz/storage/IDB/img/logos/logo-saint-gobain.svg" alt=""></a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -67,7 +82,6 @@
           <img src="https://iniciativa-bydleni.cz/uloziste/68/682911ec-be09-4b19-a056-edb22509d795.jpg" alt="Summit dostupného bydlení a stavebního rozvoje">
         </a>
       </section>
-      <!-- TODO: Odběr novinek -->
       <section>
         <a href="https://iniciativa-bydleni.cz/page/kontakt" target="_blank">
           <img src="https://iniciativa-bydleni.cz/storage/IDB/img/banners/banner-infocentrum.jpg" alt="Summit dostupného bydlení a stavebního rozvoje">
@@ -253,7 +267,7 @@
 
 </main>
 
-
+<!-- Banner script -->
 <script type="text/javascript">
   setTimeout(() => {
     document.getElementById("banner").classList.add("show");
@@ -264,8 +278,7 @@
   }
 </script>
 
-
-
+<!-- Page styling -->
 <style>
   /* TODO: Incorporate into main stylesheet ? */
   .summit-banner {
@@ -332,5 +345,126 @@
     display: block;
     cursor: pointer;
     background-image: url("https://www.central-group.cz/storage/IDB/img/banner-sar/sar-bann-bottom.jpg");
+  }
+</style>
+
+<!-- Carousel script -->
+<script>
+  const track = document.getElementById("track");
+  const viewport = document.getElementById("viewport");
+
+  track.innerHTML += track.innerHTML;
+
+  let speed = 0.8;
+  let position = 0;
+  let isPaused = false;
+  let isDragging = false;
+  let startX;
+  let dragStart;
+  let contentWidth;
+
+  function init() {
+    contentWidth = track.scrollWidth / 2;
+  }
+  window.addEventListener("load", init);
+  window.addEventListener("resize", init);
+
+  function animate() {
+    if (!isPaused && !isDragging) {
+      position -= speed;
+
+      // smooth reset 
+      if (Math.abs(position) >= contentWidth) {
+        position += contentWidth;
+      }
+
+      track.style.transform = `translateX(${position}px)`;
+    }
+
+    requestAnimationFrame(animate);
+  }
+
+  requestAnimationFrame(animate);
+
+  // hover pause
+  viewport.addEventListener("mouseenter", () => isPaused = true);
+  viewport.addEventListener("mouseleave", () => isPaused = false);
+
+  // drag start
+  viewport.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    startX = e.clientX;
+    dragStart = position;
+  });
+
+  // drag move
+  window.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    const dx = e.clientX - startX;
+    position = dragStart + dx;
+    track.style.transform = `translateX(${position}px)`;
+  });
+
+  // drag end
+  window.addEventListener("mouseup", () => {
+    isDragging = false;
+  });
+
+  // touch
+  viewport.addEventListener("touchstart", (e) => {
+    isDragging = true;
+    startX = e.touches[0].clientX;
+    dragStart = position;
+  });
+
+  viewport.addEventListener("touchmove", (e) => {
+    if (!isDragging) return;
+    const dx = e.touches[0].clientX - startX;
+    position = dragStart + dx;
+    track.style.transform = `translateX(${position}px)`;
+  });
+
+  viewport.addEventListener("touchend", () => {
+    isDragging = false;
+  });
+</script>
+
+<!-- Carousel styling -->
+<style>
+  .logo-carousel {
+    width: 100%;
+    padding: 40px 0;
+    background: #fff;
+    position: relative;
+  }
+
+  .logo-viewport {
+    overflow: hidden;
+    width: 100%;
+    cursor: grab;
+  }
+
+  .logo-viewport:active {
+    cursor: grabbing;
+  }
+
+  .logo-track {
+    display: flex;
+    gap: 50px;
+    width: max-content;
+    will-change: transform;
+  }
+
+  .logo-item img {
+    height: 70px;
+    width: auto;
+    opacity: 0.85;
+    transition: transform .3s ease, opacity .3s ease;
+    pointer-events: none;
+  }
+
+  .logo-item:hover img {
+    transform: scale(1.05);
+    opacity: 1;
   }
 </style>

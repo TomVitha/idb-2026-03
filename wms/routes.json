@@ -12,7 +12,8 @@
     "title": "Home Page",
     "blocks": [
       { "src": "idb-meta", "type": "meta" },
-      { "src": "index" }
+      { "src": "index" },
+      { "src": "registration-form" }
     ]
   },
   "poradenstvi-financovani": {

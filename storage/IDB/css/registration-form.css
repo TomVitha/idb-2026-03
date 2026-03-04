@@ -1,0 +1,195 @@
+/* TODO: RESOLVE NAME CONFLICTS WITH ORDERFORM !!! */
+
+/* === Obecné rozložení sekce === */
+.section-regform {
+  /* max-width: 750px; */
+  /* margin: 0 auto; */
+  /* padding: 40px 32px; */
+  /* background: #ffffff; */
+  /* border-radius: 12px; */
+  /* box-shadow: 0 20px 45px rgba(0, 0, 0, 0.08); */
+  /*font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;*/
+  /* HACK !!!! */
+  margin-top: -4rem;
+}
+
+/* === Textová část === */
+.contact-box-text {
+  margin-bottom: 32px;
+}
+
+.heading-h2 {
+  margin-bottom: 12px;
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: #20234c;
+}
+
+.contact-box-text p {
+  margin: 0;
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* === Formulář === */
+.contact-box-form {
+  padding: 0;
+}
+
+.heading-form {
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #20234c;
+}
+
+.contact-form {
+  padding: 4px;
+}
+
+/* === Inputy === */
+.contact-form > div {
+  margin-bottom: 12px;
+}
+
+.contact-form input[type="text"],
+.contact-form input[type="email"] {
+  width: 100%;
+  padding: 14px 16px;
+  /* border-radius: 10px; */
+  border: 1px solid #dcdce6;
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form input::placeholder {
+  color: #aaa;
+}
+
+.contact-form input:focus {
+  outline: none;
+  border-color: #20234c;
+  box-shadow: 0 0 0 3px rgba(32, 35, 76, 0.15);
+}
+
+/* === Checkbox + button === */
+.form--buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.form-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.form-check-input {
+  margin-top: 3px;
+  accent-color: #20234c;
+}
+
+.form-check-label {
+  cursor: pointer;
+  line-height: 1.4;
+}
+
+/* === Tlačítko === */
+
+/* DEPRECATED */
+ /* .btn-form {
+  padding: 14px 26px;
+  border-radius: 10px;
+  border: none;
+  background: #20234c;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn-form:hover {
+    box-shadow: 0 6px 16px rgba(32, 35, 76, 0.3);
+    background: #20234c !important;
+}
+
+.btn-form:active {
+  transform: translateY(0);
+  box-shadow: none;
+} */
+
+
+.form-check-label:before, .form-check-input:not(:checked) + .form-check-label:before {
+    background-color: #fff;
+    border: 1px solid #20234c;
+    /* border-radius: 4px; */
+}
+
+.form-check-input:checked + .form-check-label:before {
+    background-color: var(--color-primary);
+    /* border-radius: 4px !important; */
+}
+
+
+/* === reCAPTCHA === */
+.g-recaptcha {
+  margin-top: 0;
+}
+
+/* === Stavové hlášky === */
+#messageSuccess,
+#messageSending,
+#messageFailure {
+  margin-top: 18px;
+  padding: 14px 16px;
+  /* border-radius: 10px; */
+  font-size: 0.95rem;
+}
+
+#messageSuccess {
+  background: #e8f7ef;
+  color: #217a4a;
+}
+
+#messageSending {
+  background: #eef2ff;
+  color: #2b2f6e;
+}
+
+#messageFailure {
+  background: #fdecea;
+  color: #b42318;
+}
+
+/* === Responzivita === */
+@media (max-width: 640px) {
+
+  .heading-h2 {
+    font-size: 1.6rem;
+  }
+
+  .form--buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn-form {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+
+
+.contact-card {
+    margin-bottom: -2.5rem;
+}
