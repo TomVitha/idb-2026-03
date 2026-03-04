@@ -531,7 +531,7 @@ hgroup b,
   margin-block: 0.5rem;
 
   /* DEBUG */
-  color: red !important;
+  /* color: red !important; */
 }
 
 hgroup p {
