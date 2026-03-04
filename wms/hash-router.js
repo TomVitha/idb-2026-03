@@ -1,5 +1,5 @@
 // HASH ROUTER
-import routes from "/wms/routes.json" with { type: "json" };
+import routes from "./routes.json" with { type: "json" };
 
 const titlePrefix = ''
 const titleSuffix = ''
