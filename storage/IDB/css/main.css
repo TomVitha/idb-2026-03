@@ -525,6 +525,7 @@ hgroup b,
   /* vertical-align: sub; */
 }
 
+/* TODO: Vylepši styling, neměl by být až tak malinký */
 :is(h1, h2, h3, h4, h5, h6) small {
   /* ? increase font-size ? */
   font-size: 1.25rem;
@@ -536,6 +537,10 @@ hgroup b,
 
   /* DEBUG */
   /* color: red !important; */
+
+  /* WIP */
+  font-size: 80%;
+  margin-block: 0;
 }
 
 hgroup p {
@@ -573,6 +578,7 @@ hgroup p {
   /** Calc explanation: Difference in text-behind size and primary text size, half that and +- offset **/
   /* Note: 0.7 compensates for reduced line-height */
   /* Note: Positioning breaks when primary text larger than text behind (>9rem) */
+  /* TODO: FIX */
   padding-top: calc(((var(--font-size-text-behind, 12rem) * 0.7 - 1em) / 2) + 0.5rem);
   /* Note: Height at least text-behind */
   min-height: calc(var(--font-size-text-behind, 12rem) * 0.7);
@@ -655,6 +661,12 @@ section {
   isolation: isolate;
   background-position: center;
   background-size: cover;
+}
+
+/* WIP */
+main>section:last-child {
+  /* background-color: red; */
+  margin-bottom: 5rem;
 }
 
 
@@ -1833,6 +1845,7 @@ hr[data-text]::before {
   counter-reset: headings;
 }
 
+/* TODO: Decouple heading number from wall styling ! */
 .wall-headings h3 {
   counter-increment: headings;
   --color-text-behind: #fefefe;
