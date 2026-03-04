@@ -77,5 +77,26 @@
       { "src": "idb-meta", "type": "meta" },
       { "src": "kontakt" }
     ]
+  },
+  "w1": {
+    "title": "w1",
+    "blocks": [
+      { "src": "idb-meta", "type": "meta" },
+      { "src": "w1" }
+    ]
+  },
+  "w2": {
+    "title": "w2",
+    "blocks": [
+      { "src": "idb-meta", "type": "meta" },
+      { "src": "w2" }
+    ]
+  },
+  "w3": {
+    "title": "w3",
+    "blocks": [
+      { "src": "idb-meta", "type": "meta" },
+      { "src": "w3" }
+    ]
   }
 }
