@@ -118,6 +118,10 @@ figure {
   overflow: clip;
 }
 
+figure img {
+  width: 100%;
+}
+
 address {
   font-style: normal;
 }
@@ -554,10 +558,11 @@ hgroup p {
   text-decoration: none;
 }
 
-:is(h1, h2, h3, h4, h5, h6).brick {
+/* :is(h1, h2, h3, h4, h5, h6).brick */
+.brick {
   color: white;
   background-color: var(--color-primary);
-  padding: 0.45em 0.75em;
+  padding: 0.4em 0.75em;
   width: fit-content;
 }
 
@@ -2021,14 +2026,14 @@ blockquote,
 .types figure figcaption {
   position: absolute;
   font-size: 1.125rem;
-  background-color: var(--color-primary);
   top: 0px;
   left: 0px;
-  /* margin: 0; */
   color: white;
-  font-family: inherit;
-  padding: 0.4em 1.25em 0.4em 0.75em;
+  background-color: var(--color-primary);
   /*clip-path: polygon(0 0, 100% 0%, calc(100% - 0.666em) 100%, 0% 100%);*/
+  margin: 16px 0;
+  /* padding: 0.4em 1.25em 0.4em 0.75em; */
+  padding: 0.4em 0.75em;
   z-index: 1;
 }
 
@@ -2050,8 +2055,8 @@ blockquote,
   font-size: 1rem;
   color: #21234a;
   position: absolute;
-  bottom: 15px;
-  right: 18px;
+  bottom: 16px;
+  right: 16px;
   z-index: 1;
   font-weight: 600;
   background-color: #ffffffbf;
