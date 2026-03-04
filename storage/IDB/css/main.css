@@ -2298,3 +2298,184 @@ dialog::-webkit-backdrop {
 [data-fancybox] {
   cursor: pointer;
 }
+
+
+
+/* * eko-cards * */
+.eko-cards {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-flow: dense;
+}
+
+.eko-card {
+  --eko-card-theme-bg: black;
+  --eko-card-theme-fg: white;
+  --eko-card-backdrop-angle: 90deg;
+
+  grid-row: span 1;
+  grid-column: span 12;
+  min-height: 300px;
+  border-radius: 18px;
+  padding: 2rem min(2.25rem, 7%);
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--eko-card-theme-bg);
+
+  color: var(--eko-card-theme-fg);
+}
+
+.eko-card.tall {
+  grid-row: span 2;
+}
+
+.eko-card.widest {
+  grid-column: 1 / -1;
+}
+
+.theme--black {
+  --eko-card-theme-bg: #1a1a1ad9;
+  --eko-card-theme-fg: white;
+}
+
+.theme--gray {
+  --eko-card-theme-bg: #e5e5e5;
+  --eko-card-theme-fg: #1a1a1a;
+}
+
+.theme--white {
+  --eko-card-theme-bg: #ffffffa1;
+  --eko-card-theme-fg: #1a1a1a;
+}
+
+.theme--yellow {
+  --eko-card-theme-bg: #f1eabd;
+  --eko-card-theme-fg: #1a1a1a;
+}
+
+.theme--green {
+  --eko-card-theme-bg: #617a3a;
+  --eko-card-theme-fg: white;
+}
+
+.theme--blue {
+  --eko-card-theme-bg: #ececf5;
+  --eko-card-theme-fg: #1a3071;
+}
+
+.theme--blue-light {
+  --eko-card-theme-bg: #e9f1f8;
+  --eko-card-theme-fg: #383937;
+}
+
+.theme--blue-dark {
+  --eko-card-theme-bg: #0c1735d9;
+  --eko-card-theme-fg: #ffffff;
+}
+
+.theme--teal {
+  --eko-card-theme-bg: #b7dbc2;
+  --eko-card-theme-fg: #1a3071;
+}
+
+.theme--brown {
+  --eko-card-theme-bg: #ae6e53;
+  --eko-card-theme-fg: #ffffff;
+}
+
+.theme--transparent {
+  --eko-card-theme-bg: transparent;
+  --eko-card-theme-fg: transparent;
+}
+
+.eko-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(var(--eko-card-backdrop-angle), var(--eko-card-theme-bg) 15%, transparent);
+  z-index: -1;
+}
+
+.eko-card :is(h1, h2, h3, h4, h5, h6) {
+  color: inherit;
+  text-wrap: balance;
+}
+
+.eko-card h3 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 750;
+}
+
+img.eko-card__icon {
+  max-width: 100px;
+  max-height: 82px;
+  position: relative;
+  margin-block: 1rem;
+}
+
+img.eko-card__icon.left {
+  margin-right: auto;
+}
+
+img.eko-card__icon.right {
+  margin-left: auto;
+}
+
+img.eko-card__icon.center {
+  margin-inline: auto;
+}
+
+img.eko-card__icon:first-child {
+  margin-top: 0;
+}
+
+img.eko-card__icon:last-child {
+  margin-bottom: 0;
+}
+
+
+@media (min-width: 768px) {
+
+  .eko-card {
+    grid-column: span 6;
+  }
+
+  .eko-card.narrow {
+    grid-column: span 4;
+  }
+
+  .eko-card.wide {
+    grid-column: span 8;
+  }
+
+  .eko-card.top {
+    justify-content: start;
+    --eko-card-backdrop-angle: 180deg;
+  }
+
+  .eko-card.center {
+    justify-content: center;
+  }
+
+  .eko-card.bottom {
+    justify-content: end;
+    --eko-card-backdrop-angle: 0deg;
+  }
+
+  .eko-card__content {
+    max-width: 60ch;
+  }
+}
