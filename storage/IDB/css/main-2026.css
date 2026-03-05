@@ -520,9 +520,14 @@ hgroup :is(h1, h2, h3, h4, h5, h6) {
 
 hgroup b,
 :is(h1, h2, h3, h4, h5, h6) b {
-  font-size: 1.5em;
+  /* font-size: 1.5em; */
+
   /* ? maybe disable ? */
   /* vertical-align: sub; */
+
+  /* DEV */
+  /* color: violet !important; */
+  font-size: 135%;
 }
 
 /* TODO: Vylepši styling, neměl by být až tak malinký */
@@ -643,12 +648,38 @@ hr {
   flex-wrap: wrap;
 }
 
+/* REMOVE FROM MAIN STYLING ! */
+.regform-inputs {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+}
+
+.regform-inputs > div {
+   width: 50%;
+}
+
+
+
 @media (max-width: 767px) {
   .contacts--header .label {
     display: none;
   }
-}
 
+  .regform-inputs > div {
+    width: 100%;
+  }
+
+.regform-inputs {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+}
 
 
 /* # SECTIONS */
@@ -666,7 +697,7 @@ section {
 /* WIP */
 main>section:last-child {
   /* background-color: red; */
-  /* margin-bottom: 5rem; */
+  margin-bottom: 5rem;
 }
 
 
@@ -1046,6 +1077,7 @@ header menu a {
   width: var(--list-marker-size);
   height: var(--list-marker-size);
   align-self: start;
+  margin-top: 0.5rem; /* ADDED */
   flex: 0 0 auto;
   mask-image: none;
   mask-size: contain;
@@ -1106,6 +1138,11 @@ header menu a {
 :is(h4):has(+.cons), .cons strong {
   color: var(--color-cons);
 } */
+
+/* ADDED */
+.list.cons >li:before {
+  margin-top: 0;
+}
 
 
 /* Trapezoid */
@@ -2164,6 +2201,13 @@ blockquote,
   .float-right {
     float: right;
   }
+
+  /* ADDED */
+  .list.big {
+    font-size: 1.75rem;
+    font-weight: 600;
+  }
+
 }
 
 /* Source: https://css-generators.com/ribbon-shapes/ */
