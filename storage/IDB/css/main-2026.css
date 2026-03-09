@@ -1,37 +1,46 @@
 /** TYPOGRAPHY **/
 @import url('https://www.central-group.cz/storage/IDB/css/typography.css');
 
+/* TODO: Organize and compartmentalize: reset, base, button, forms... */
+
 :root {
-  /** COLORS **/
-  /* Brand */
-  --color-yellow: #ffed00;
-  --color-bordeaux: #8c164d;
-  --color-blue: #20234c;
-  --color-blue: #092563;
+  /** CG Colors **/
+  --color-cg-yellow: #ffed00;
+  --color-cg-blue: #20234c;
+
+  /* IDB Colors */
   --color-blue: #19265d;
   --color-blue-dark: #0e1237;
   --color-green: #37a644;
-  /* --color-red: #b53937; */
   --color-red: #c8242b;
-  /* Grays */
+  --color-yellow: #ffed00;
+  --color-bordeaux: #8c164d;
+
   --color-gray: #eaeaea;
   --color-gray-dark: #4D4D4D;
-  --color-text-behind: #f0f1f2;
   --color-near-black: #070707;
-  /* Theme */
+
   --color-primary: var(--color-blue);
-  --color-secondary: #a26578;
+  --color-secondary: #f2f2f2;
   --color-tertiary: #ffffff;
-  /* Layout */
-  /* --color-pros: var(--color-blue, #20234c); */
+
   --color-pros: var(--color-green);
   --color-cons: var(--color-red);
 
   --color-headings: var(--color-primary);
+  --color-text-behind: #f0f1f2;
   --font-size-text-behind: 9rem;
-  --wall-bg-overlay: linear-gradient(#ffffffb3);
 
-  /** Misc **/
+  --block-padding-x: min(2.5rem, 5%);
+  --block-padding-y: 1.5rem;
+  --block-padding: var(--block-padding-x), var(--block-padding-y);
+
+  /* Icons */
+  --icon-check-svg: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" version="1.2" viewBox="0 0 84 73"><path class="a" d="m0 39.5l8.2-14c0 0 17.9 17.8 18.6 26.6 0 0 23.6-38.3 54.3-52.1l2.9 4.2c0 0-44.2 38.9-49.7 68.8h-11.1c0 0-6.3-25-23.2-33.5z"/></svg>');
+  --icon-x-svg: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" version="1.2" viewBox="0 0 84 84"><path id="Layer copy" class="s0" d="m71.4 0.9c1-2.2-30.3 33.4-30.5 31.8-0.4-0.5-34.7-35.9-32.5-32.4-1.1-2.7-10.3 13.3-8.1 12.7-2.1 0.9 32.4 29.1 32.5 29.1-1.7-1.2-34.2 31.6-32.5 30.8-0.5 0.5 9.5 10.4 9.1 11-1.3 2.1 31.9-30.6 31.5-31.7-0.2 0.7 32.5 33.1 32.7 31.7 1.2 1.2 11.4-10.4 10.3-11.3 1.1 0.7-33.2-28.8-33-30.2 0.8-1.5 33.5-33 30.5-29.7 0.4-1-8.1-14.6-10-11.8z"/></svg>');
+  --icon-arrow-svg: url('data:image/svg+xml,<svg version="1.2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 55"><path fill="none" stroke="black" stroke-linecap="round" stroke-width="8.3" d="m4.28 19.17h42.12m-42.12 16.65h42.12m12.73 14.89l19.32-23.22-19.32-23.22"/></svg>');
+
+  /* NON-VARIABLES */
   accent-color: var(--color-primary);
   interpolate-size: allow-keywords;
 }
@@ -82,7 +91,7 @@ a {
 
 :where(main :is(p, li)) > a {
   color: var(--color-primary);
-  font-weight: 700;
+  /* font-weight: 700; */
 }
 
 :where(main :is(p, li)) > a:hover {
@@ -114,7 +123,7 @@ img, picture, svg, video, canvas {
 
 figure {
   position: relative;
-  margin: 1rem 0;
+  margin: 1.5rem 0;
   overflow: clip;
 }
 
@@ -126,7 +135,6 @@ address {
   font-style: normal;
 }
 
-/* Prevent <sub> and <sup> elements from affecting the line height */
 sub,
 sup {
   font-size: 75%;
@@ -141,21 +149,6 @@ sub {
 
 sup {
   top: -0.5em;
-}
-
-textarea {
-  max-width: 100%;
-  font-size: inherit;
-  font-family: inherit;
-}
-
-textarea:focus-visible {
-  outline: none;
-}
-
-input {
-  font-family: inherit;
-  font-size: 100%;
 }
 
 /* Note: <strong> will use inherited current color */
@@ -176,12 +169,6 @@ b {
 
 .thin {
   font-weight: 300;
-}
-
-label {
-  -webkit-user-select: none;
-  user-select: none;
-  font-size: 0.875rem;
 }
 
 dl {
@@ -205,7 +192,7 @@ details:open::details-content {
 }
 
 
-/* [data-v-5782d946] > div {
+[data-v-5782d946] > div {
   display: flex;
   flex-direction: column;
   min-height: 100svh;
@@ -213,8 +200,88 @@ details:open::details-content {
 
 [data-v-d084fd22]:has(main) {
   flex: 1;
-} */
+}
 
+/* WIP */
+/* * Inputs * */
+/* TODO: Complete styling inputs */
+
+input, button, textarea, select {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  border: none;
+  max-width: 100%;
+}
+
+textarea {
+  resize: vertical;
+}
+
+textarea:focus-visible {
+  outline: none;
+}
+
+/* text fields */
+input:where([type="email"], [type="number"], [type="password"], [type="search"], [type="tel"], [type="text"], [type="url"]), textarea {
+  width: 100%;
+  padding: 0.85em 1em;
+  font-size: 1rem;
+  border-radius: 0px;
+  /* ? maybe ? */
+  font-size: inherit;
+}
+
+[type=checkbox], [type=radio] {
+  width: 1rem;
+  height: 1rem;
+  vertical-align: middle;
+}
+
+label {
+  -webkit-user-select: none;
+  user-select: none;
+  font-size: 0.875rem;
+
+  /* ? */
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75em;
+}
+
+/* WMS Form */
+.form-messages {
+  /* ? */
+}
+
+.form-message {
+  margin-block: 1rem;
+  padding: 1em 1.25em;
+  font-size: 0.875rem;
+}
+
+.form-message#messageSuccess {
+  background: #e8f7ef;
+  color: #217a4a;
+}
+
+.form-message#messageSending {
+  background: #eef2ff;
+  color: #2b2f6e;
+}
+
+.form-message#messageFailure {
+  background: #fdecea;
+  color: #b42318;
+}
+
+/* WIP */
+/* custom dialog */
+.dialog-custom {
+  background-color: white;
+}
 
 .container {
   position: relative;
@@ -474,7 +541,7 @@ h6, hgroup:has(h6) {
 /** HEADINGS MOBILE QUERIES **/
 @media (max-width: 767px) {
   :root {
-    --font-size-text-behind: 8rem;
+    --font-size-text-behind: 5rem;
   }
 
   h1, hgroup:has(h1) {
@@ -534,7 +601,7 @@ hgroup b,
 :is(h1, h2, h3, h4, h5, h6) small {
   /* ? increase font-size ? */
   font-size: 1.25rem;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.25;
   letter-spacing: -0.001em;
   display: block;
@@ -631,13 +698,6 @@ hr {
   color: var(--color-near-black);
 }
 
-.header__content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.75rem;
-}
-
 .contacts {
   display: flex;
   gap: 0.25rem 1rem;
@@ -648,37 +708,10 @@ hr {
   flex-wrap: wrap;
 }
 
-/* REMOVE FROM MAIN STYLING ! */
-.regform-inputs {
-    display: flex;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    align-content: center;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 2rem;
-}
-
-.regform-inputs > div {
-   width: 50%;
-}
-
-
-
 @media (max-width: 767px) {
   .contacts--header .label {
     display: none;
   }
-
-  .regform-inputs > div {
-    width: 100%;
-  }
-
-.regform-inputs {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
 }
 
 
@@ -694,22 +727,10 @@ section {
   background-size: cover;
 }
 
-/* WIP */
-main>section:last-child {
-  /* background-color: red; */
-  margin-bottom: 5rem;
-}
-
-
 /** Sub-sections **/
 section section {
   overflow: visible;
   margin-block: 3.0rem;
-}
-
-section.video-bann {
-  background-color: #33486a;
-  margin: 0;
 }
 
 @media (max-width: 991px) {
@@ -722,21 +743,28 @@ section.video-bann {
   }
 }
 
+/* ? deprecate ? */
+section.narrow {
+  margin-block: 1.5rem;
+}
+
 /* Section with bg */
 section:where([class*="bg-"]) {
   margin-block: 0;
   padding-block: 2rem;
 }
 
-section.narrow {
-  margin-block: 1.5rem;
+/* COLORS */
+/* ? deprecate ? */
+[class*="bg-"] :is(h1, h2, h3, h4, h5, h6):first-of-type {
+  margin-top: 0;
 }
 
-.text-primary {
-  color: var(--color-primary)
+/* ? deprecate ? */
+:is(.bg-primary, .bg-bordeaux, .bg-blue) :is(h1, h2, h3, h4, h5, h6) {
+  --color-headings: currentColor;
 }
 
-/** Section colors **/
 .bg-primary {
   background-color: var(--color-primary, var(--color-blue));
   color: white;
@@ -750,8 +778,32 @@ section.narrow {
 }
 
 .bg-white {
-  /* --color-text-behind: #f3f3f3; */
   background-color: white;
+}
+
+.bg-black {
+  background-color: black;
+}
+
+.bg-blue {
+  background-color: var(--color-blue);
+  color: white;
+}
+
+.bg-green {
+  background-color: var(--color-green);
+}
+
+.bg-red {
+  background-color: var(--color-red);
+}
+
+.bg-yellow {
+  background-color: var(--color-yellow);
+}
+
+.bg-bordeaux {
+  background-color: var(--color-bordeaux);
 }
 
 .bg-gray {
@@ -763,23 +815,35 @@ section.narrow {
   background-position: top left;
 }
 
-.bg-blue {
-  background-color: var(--color-blue);
-  color: white;
-}
-
-/* ? redundant ? */
-[class*="bg-"] :is(h1, h2, h3, h4, h5, h6):first-of-type {
-  margin-top: 0;
-}
-
-:is(.bg-primary, .bg-bordeaux, .bg-blue) :is(h1, h2, h3, h4, h5, h6) {
-  --color-headings: currentColor;
+/* overlap with .wall */
+.bg-wall {
+  --color-text-behind: #fdfdfd;
+  /* background-color: var(--color-gray); */
+  background-image: url('https://www.iniciativa-bydleni.cz/storage/IDB/img/backgrounds/texture-wall-lighter_2000.jpg');
+  background-size: 2000px;
+  background-repeat: repeat;
+  background-position: top left;
 }
 
 
-.red {
+
+
+
+/* WIP */
+.text-primary {
+  color: var(--color-primary)
+}
+
+.text-secondary {
+  color: var(--color-secondary)
+}
+
+.red .text-red {
   color: var(--color-red);
+}
+
+.text-white {
+  color: white;
 }
 
 
@@ -821,31 +885,31 @@ section.narrow {
 }
 
 /* # HEADER */
-[data-v-d084fd22]:has(>header) {
+[data-v-d084fd22]:has(>#header) {
   position: sticky;
   top: 0px;
   z-index: 10;
 }
 
-header {
+#header {
   position: relative;
   z-index: 999;
   overflow: visible;
 }
 
-.header__top {
+#header .header__top {
   background-color: var(--color-primary);
   color: white;
   height: 56px;
 }
 
-.header__top nav {
+#header .header__top nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.header__hamburger {
+#header .header__hamburger {
   appearance: none;
   outline: none;
   border: none;
@@ -863,7 +927,7 @@ header {
   display: none;
 }
 
-header menu {
+#header menu {
   display: flex;
   align-items: center;
   justify-content: end;
@@ -871,15 +935,15 @@ header menu {
   background-color: var(--color-primary);
 }
 
-header menu > li {
+#header menu > li {
   flex: 0 0 auto;
 }
 
-header menu .logo {
+#header menu .logo {
   justify-self: start;
 }
 
-header a:not(.btn) {
+#header a:not(.btn) {
   display: block;
   color: inherit;
   font-weight: 400;
@@ -887,11 +951,11 @@ header a:not(.btn) {
   line-height: 1.25;
 }
 
-header a:not(.btn):hover {
+#header a:not(.btn):hover {
   text-decoration: underline;
 }
 
-header a:not(.btn).active {
+#header a:not(.btn).active {
   font-weight: 600;
 }
 
@@ -902,26 +966,30 @@ header a:not(.btn).active {
   z-index: 1;
 }
 
+/* ADDED */
+img.logo {
+  height: 165px;
+}
 
-header .logo__wrapper {
+#header .logo__wrapper {
   align-self: start;
   top: 16px;
 }
 
-.header__bottom {
+#header .header__bottom {
   background-color: #92989c;
   color: white;
   height: 44px;
 }
 
-.header__bottom nav {
+#header .header__bottom nav {
   display: flex;
   align-items: center;
   justify-content: end;
   gap: 0 1.5rem;
 }
 
-header address {
+#header address {
   display: flex;
   align-items: center;
   justify-content: end;
@@ -929,11 +997,11 @@ header address {
 }
 
 
-.header__hamburger {
+#header .header__hamburger {
   display: flex;
 }
 
-header menu {
+#header menu {
   flex-direction: column;
   position: absolute;
   gap: 0;
@@ -953,101 +1021,53 @@ header menu {
   /* background-color: color-mix(in srgb, var(--color-primary) 80%, black); */
 }
 
-header menu.open {
+#header menu.open {
   translate: 0 0;
   visibility: visible;
 }
 
-header menu li {
-  /* border-top: 1px solid rgba(255, 255, 255, 0.5); */
-}
-
-header menu a {
+#header menu a {
   padding: 0.75em 35px;
 }
 
-.header__bottom {
+#header .header__bottom {
   display: none;
 }
 
+/* ADDED */
+@media (max-width: 991px) {
+  img.logo {
+    height: 110px;
+  }
 
-/* Dropdown */
-.dropdown {
-  position: relative;
+  #header address {
+    gap: 0 1rem;
+    font-size: 0.875rem;
+    padding-left: 1.5rem;
+  }
 }
-
-.dropdown > a {
-  cursor: pointer;
-}
-
-.dropdown .arrow {
-  transition: transform 0.3s ease;
-  margin-left: 8px;
-  font-size: 1rem;
-  vertical-align: text-top;
-}
-
-.dropdown.open .arrow {
-  transform: rotate(90deg);
-}
-
-.dropdown .arrow i {
-  transition: transform 0.3s ease;
-}
-
-.dropdown.open .arrow i {
-  transform: rotate(90deg);
-}
-
-.dropdown-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease, opacity 0.3s ease;
-  opacity: 0;
-}
-
-.dropdown.open .dropdown-content {
-  max-height: 150px;
-  opacity: 1;
-}
-
-.dropdown-content a {
-  display: block;
-  background: #21234a;
-  padding: 0.75em 50px;
-}
-
 
 @media (max-width: 575px) {
-  header menu {
+  #header menu {
     max-width: 100%;
     width: 100%;
   }
 }
 
-
 /* # LIST */
 .list {
-  --list-marker-color: transparent;
-  --list-marker-gap: 1rem;
   --list-marker-img: none;
-  --list-marker-size: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  row-gap: 0.5rem;
-  font-size: inherit;
+  /* --list-marker-color: ; */
+  --list-marker-size: 1lh;
+  --list-marker-gap: 1rem;
+  --list-li-spacing: 0.75em;
   padding: 0rem;
-  margin-left: min(12px, 1%);
 }
 
 /* Nested list */
 .list .list {
   row-gap: 0.5rem;
   margin-block: 0.5rem 0rem;
-}
-
-.list + .list {
-  /* margin-top: 1.5rem; */
 }
 
 .list > li {
@@ -1057,10 +1077,15 @@ header menu a {
   padding-left: calc(var(--list-marker-size) + var(--list-marker-gap));
 }
 
+.list > li + li {
+  margin-top: var(--list-li-spacing);
+}
+
 /* Default CSS marker */
 .list > li::marker {
   color: var(--color-primary);
 }
+
 
 /* Custom marker */
 /* Note: By default: Use --list-marker-img as background-image */
@@ -1077,7 +1102,8 @@ header menu a {
   width: var(--list-marker-size);
   height: var(--list-marker-size);
   align-self: start;
-  margin-top: 0.5rem; /* ADDED */
+  /* ADDED */
+  /* margin-top: 0.5rem; */
   flex: 0 0 auto;
   mask-image: none;
   mask-size: contain;
@@ -1085,7 +1111,7 @@ header menu a {
   mask-position: center;
   mask-repeat: no-repeat;
   /* WIP */
-  background: var(--list-marker-color);
+  background: var(--list-marker-color, currentColor);
   mask-image: var(--list-marker-img);
   /* margin-top: 0.25rem; */
 }
@@ -1093,6 +1119,12 @@ header menu a {
 @media (min-width: 992px) {
   .list.big {
     font-size: 1.25rem;
+
+    /* ADDED */
+    /* font-size: 1.75rem; */
+    /* font-weight: 600; */
+
+    font-size: 1.5rem;
   }
 }
 
@@ -1112,22 +1144,36 @@ header menu a {
   display: none;
 }
 
-.check-marks {
+/* TODO: Refactor code from ".check-marks" to ".marker-check" */
+.check-marks,
+.marker-check {
   --list-marker-color: var(--color-primary);
   /* --list-marker-img: url('https://iniciativa-bydleni.cz/storage/IDB/img/icons/check-mark-primary.svg'); */
-  --list-marker-img: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" version="1.2" viewBox="0 0 84 73"><path class="a" d="m0 39.5l8.2-14c0 0 17.9 17.8 18.6 26.6 0 0 23.6-38.3 54.3-52.1l2.9 4.2c0 0-44.2 38.9-49.7 68.8h-11.1c0 0-6.3-25-23.2-33.5z"/></svg>');
+  /* --list-marker-img: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" version="1.2" viewBox="0 0 84 73"><path class="a" d="m0 39.5l8.2-14c0 0 17.9 17.8 18.6 26.6 0 0 23.6-38.3 54.3-52.1l2.9 4.2c0 0-44.2 38.9-49.7 68.8h-11.1c0 0-6.3-25-23.2-33.5z"/></svg>'); */
+  --list-marker-img: var(--icon-check-svg);
+}
+
+.marker-x {
+  --list-marker-color: var(--color-cons);
+  /* --list-marker-img: url('https://iniciativa-bydleni.cz/storage/IDB/img/icons/x-mark-dark-red.svg'); */
+  /* --list-marker-img: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" version="1.2" viewBox="0 0 84 84"><path id="Layer copy" class="s0" d="m71.4 0.9c1-2.2-30.3 33.4-30.5 31.8-0.4-0.5-34.7-35.9-32.5-32.4-1.1-2.7-10.3 13.3-8.1 12.7-2.1 0.9 32.4 29.1 32.5 29.1-1.7-1.2-34.2 31.6-32.5 30.8-0.5 0.5 9.5 10.4 9.1 11-1.3 2.1 31.9-30.6 31.5-31.7-0.2 0.7 32.5 33.1 32.7 31.7 1.2 1.2 11.4-10.4 10.3-11.3 1.1 0.7-33.2-28.8-33-30.2 0.8-1.5 33.5-33 30.5-29.7 0.4-1-8.1-14.6-10-11.8z"/></svg>'); */
+  --list-marker-img: var(--icon-x-svg);
 }
 
 .pros {
   --list-marker-color: var(--color-pros);
-  /* --list-marker-img: url('https://iniciativa-bydleni.cz/storage/IDB/img/icons/check-mark-primary.svg'); */
-  --list-marker-img: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" version="1.2" viewBox="0 0 84 73"><path class="a" d="m0 39.5l8.2-14c0 0 17.9 17.8 18.6 26.6 0 0 23.6-38.3 54.3-52.1l2.9 4.2c0 0-44.2 38.9-49.7 68.8h-11.1c0 0-6.3-25-23.2-33.5z"/></svg>');
+  /* --list-marker-img: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" version="1.2" viewBox="0 0 84 73"><path class="a" d="m0 39.5l8.2-14c0 0 17.9 17.8 18.6 26.6 0 0 23.6-38.3 54.3-52.1l2.9 4.2c0 0-44.2 38.9-49.7 68.8h-11.1c0 0-6.3-25-23.2-33.5z"/></svg>'); */
+  --list-marker-img: var(--icon-check-svg);
 }
 
 .cons {
   --list-marker-color: var(--color-cons);
-  /* --list-marker-img: url('https://iniciativa-bydleni.cz/storage/IDB/img/icons/x-mark-dark-red.svg'); */
-  --list-marker-img: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" version="1.2" viewBox="0 0 84 84"><path id="Layer copy" class="s0" d="m71.4 0.9c1-2.2-30.3 33.4-30.5 31.8-0.4-0.5-34.7-35.9-32.5-32.4-1.1-2.7-10.3 13.3-8.1 12.7-2.1 0.9 32.4 29.1 32.5 29.1-1.7-1.2-34.2 31.6-32.5 30.8-0.5 0.5 9.5 10.4 9.1 11-1.3 2.1 31.9-30.6 31.5-31.7-0.2 0.7 32.5 33.1 32.7 31.7 1.2 1.2 11.4-10.4 10.3-11.3 1.1 0.7-33.2-28.8-33-30.2 0.8-1.5 33.5-33 30.5-29.7 0.4-1-8.1-14.6-10-11.8z"/></svg>');
+  /* --list-marker-img: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" version="1.2" viewBox="0 0 84 84"><path id="Layer copy" class="s0" d="m71.4 0.9c1-2.2-30.3 33.4-30.5 31.8-0.4-0.5-34.7-35.9-32.5-32.4-1.1-2.7-10.3 13.3-8.1 12.7-2.1 0.9 32.4 29.1 32.5 29.1-1.7-1.2-34.2 31.6-32.5 30.8-0.5 0.5 9.5 10.4 9.1 11-1.3 2.1 31.9-30.6 31.5-31.7-0.2 0.7 32.5 33.1 32.7 31.7 1.2 1.2 11.4-10.4 10.3-11.3 1.1 0.7-33.2-28.8-33-30.2 0.8-1.5 33.5-33 30.5-29.7 0.4-1-8.1-14.6-10-11.8z"/></svg>'); */
+  --list-marker-img: var(--icon-x-svg);
+}
+
+.marker-arrow {
+  --list-marker-img: var(--icon-arrow-svg);
 }
 
 /* Color heading preceding pros/cons list */
@@ -1139,10 +1185,6 @@ header menu a {
   color: var(--color-cons);
 } */
 
-/* ADDED */
-.list.cons >li:before {
-  margin-top: 0;
-}
 
 
 /* Trapezoid */
@@ -1248,33 +1290,6 @@ header menu a {
   text-transform: uppercase;
 }
 
-/* DEPRECATED */
-/* Big icon (check, cross) */
-.big-icon-bg::before {
-  content: "";
-  display: block;
-  position: absolute;
-  top: -2.5rem;
-  right: 0rem;
-  width: 20rem;
-  max-width: 100vw;
-  /* height: 350px; */
-  aspect-ratio: 1;
-  background: var(--color-text-behind);
-  mask-size: contain;
-  mask-mode: alpha;
-  mask-position: center;
-  mask-repeat: no-repeat;
-  z-index: -1;
-}
-
-.big-icon-bg--check-mark::before {
-  mask-image: url('https://iniciativa-bydleni.cz/storage/IDB/img/icons/check-mark.svg');
-}
-
-.big-icon-bg--x-mark::before {
-  mask-image: url('https://iniciativa-bydleni.cz/storage/IDB/img/icons/x-mark.svg');
-}
 
 /* * Accordion * */
 
@@ -1429,8 +1444,10 @@ table caption {
     margin-block: 0;
   }
 
-  footer {
-    margin-top: 2rem;
+  #footer {
+    /* margin-top: 2rem; */
+    /* ADDED */
+    margin-top: 5rem;
   }
 
   .img-large.hp-bottom {
@@ -1450,7 +1467,12 @@ table caption {
 }
 
 .member {
-  width: 130px;
+  width: 135px;
+}
+
+/* ADDED */
+figure.member {
+  margin: 0.5rem 0;
 }
 
 .member img {
@@ -1604,11 +1626,11 @@ hr[data-text]::before {
 }
 
 
-@media only (max-width: 767px) {
+/* @media (max-width: 767px) {
   [data-text-behind]::before {
     font-size: 7rem;
   }
-}
+} */
 
 
 /* # HERO */
@@ -1769,34 +1791,12 @@ hr[data-text]::before {
 
 }
 
-.hero.hp .sticker {
-  display: inline-flex;
-  background-color: var(--color-primary);
-  text-align: center;
-  width: fit-content;
-  color: white;
-  font-weight: 700;
 
-  padding: 0.25em 1.25em;
-  rotate: -9deg;
-  flex: 0 0 auto;
-  margin-block: 0.5rem;
-}
-
-.gray-brick {
-  text-align: center;
-  padding: 0.5em 1em;
-  background-color: #ededed;
-}
-
-.block-gray-outline {
-  border: 1px solid #dadada;
-  padding: 2.0rem min(2.5rem, 5%);
-}
 
 .q {
   border-left: 2px solid;
   padding-left: 1rem;
+  display: block;
 }
 
 .showcases {
@@ -1823,16 +1823,6 @@ hr[data-text]::before {
   margin-top: 3rem;
 }
 
-.brochure-pages img {
-  user-drag: none;
-  -webkit-user-drag: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-}
-
-
 /* iOS fix: baseline breaks first row's height */
 @supports (-webkit-touch-callout: none) {
   .showcase {
@@ -1843,17 +1833,6 @@ hr[data-text]::before {
 .showcase.center {
   align-items: stretch;
 }
-
-/** Line separator **/
-/* .showcases__row:not(:first-child)::before{
-    content: '';
-    position: absolute;
-    height: 1px;
-    width: 100%;
-    background-color: currentColor;
-    bottom: calc(100% + 2rem);
-    display: block;
-} */
 
 .showcase__item {
   display: flex;
@@ -1868,12 +1847,17 @@ hr[data-text]::before {
   flex: 1;
 }
 
+/* ? Uncertain about name - other ideas: .content-block ? */
+.block {
+  padding: var(--block-padding);
+}
+
 .wall {
   --color-text-behind: #fefefe;
   background: no-repeat center center/cover;
   background-image: url('https://www.iniciativa-bydleni.cz/storage/IDB/img/backgrounds/texture-wall-lighter_2000.jpg');
   /* margin-block: 1.5rem; */
-  padding: 1.5rem min(2.5rem, 5%);
+  padding: var(--block-padding);
   position: relative;
   isolation: isolate;
 }
@@ -1882,7 +1866,7 @@ hr[data-text]::before {
   counter-reset: headings;
 }
 
-/* TODO: Decouple heading number from wall styling ! */
+/* TODO: Decouple heading number from wall styling */
 .wall-headings h3 {
   counter-increment: headings;
   --color-text-behind: #fefefe;
@@ -1890,7 +1874,7 @@ hr[data-text]::before {
   background-position: center;
   background-size: cover;
   background-image: url('https://www.iniciativa-bydleni.cz/storage/IDB/img/backgrounds/texture-wall-lighter_2000.jpg');
-  padding: 1.0rem min(1.5rem, 5%);
+  padding: 1.0rem var(--block-padding-y);
   position: relative;
   isolation: isolate;
   display: flex;
@@ -1926,34 +1910,35 @@ hr[data-text]::before {
 }
 
 
-footer {
+/* NOTE: Page <footer> selected via #footer ID to avoid influencing footers in 'sectioning content' elements */
+#footer {
   padding-block: 1.5rem;
   background-color: #ededed;
   /* color: white; */
   line-height: 1.25;
 }
 
-.footer__content {
+#footer .footer__content {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
   flex-direction: row-reverse;
   justify-content: start;
-  gap: 1rem min(2.5rem, 5%);
+  gap: 1rem 2.5rem;
 }
 
-footer menu {
+#footer menu {
   display: flex;
   flex-direction: column;
   gap: 0.25rem 0;
 }
 
-footer strong + menu {
+#footer strong + menu {
   margin-top: 0.25rem;
 }
 
-footer nav {
+#footer nav {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1961,59 +1946,33 @@ footer nav {
   color: var(--color-primary);
 }
 
-footer address {
+#footer address {
   display: flex;
-  gap: 0.5rem 2.75rem;
+  gap: 0.5rem 2.0rem;
   flex-wrap: wrap;
-  font-weight: bold;
 }
 
-:where(footer) .logo {
+:where(#footer) .logo {
   width: 200px;
   height: auto;
   margin-top: -72px;
 }
 
 @media (max-width: 767px) {
-  .logo {
+  #footer .footer__content {
+    flex-wrap: wrap-reverse;
+  }
+
+  /* ADDED - selector was .logo{} */
+  img.logo {
     height: 70px;
+    /* ADDED */
+    height: 85px;
     width: auto;
     margin: 0;
   }
 }
 
-.banner-form {
-  background-image: url('https://www.iniciativa-bydleni.cz/storage/IDB/img/backgrounds/bg-form-banner.png'), url('https://www.iniciativa-bydleni.cz/storage/IDB/img/backgrounds/texture-wall-lighter_2000.jpg');
-  background-repeat: no-repeat;
-  background-position: right center, center;
-  background-size: auto 300px, cover;
-  padding: 2rem min(2.5rem, 5%);
-  margin-block: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-}
-
-.banner-form h2 {
-  max-width: 25rem;
-}
-
-@media (max-width: 991px) {
-  .banner-form {
-    background-size: contain, cover;
-  }
-}
-
-@media (max-width: 767px) {
-  .banner-form {
-    background-image: url('https://www.iniciativa-bydleni.cz/storage/IDB/img/backgrounds/texture-wall-lighter_2000.jpg');
-    background-size: cover;
-  }
-
-  .banner-form h2 {
-    max-width: unset;
-  }
-}
 
 blockquote,
 .quote {
@@ -2022,39 +1981,11 @@ blockquote,
   line-height: 1.25;
   font-style: normal;
   margin-block: 1.75rem;
-  padding: 1.5rem min(2.5rem, 5%);
+  padding: var(--block-padding);
   position: relative;
-  /* Left 'border' */
   box-shadow: inset 4px 0px 0px 0px var(--color-primary);
 }
 
-.magazine {
-  background-color: #e8e8e8;
-  padding: 1.5rem min(2.5rem, 5%);
-  isolation: isolate;
-}
-
-
-.magazine iframe {
-  border: none;
-  width: 100%;
-  height: 700px;
-  max-height: 75vh;
-  margin: 1.5rem auto;
-}
-
-.magazine__buttons {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  text-align: center;
-  gap: 0.5rem min(2rem, 5%);
-}
-
-@media (max-width: 767px) {
-  .magazine__buttons {
-    grid-template-columns: 1fr;
-  }
-}
 
 .types {
   display: grid;
@@ -2065,14 +1996,6 @@ blockquote,
   position: relative;
 }
 
-.types h3 {
-  position: absolute;
-  top: 0;
-  left: min(2.5rem, 5%);
-  translate: 0 -50%;
-  max-width: 90%;
-  z-index: 1;
-}
 
 .types figure {
   margin: 0;
@@ -2132,40 +2055,6 @@ blockquote,
   scale: 1.05;
 }
 
-/* ? delete ? */
-.alternator {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: start;
-  gap: 2.5rem 0;
-  padding-inline: min(2.5rem, 5%);
-}
-
-/** Alternating - only on desktop **/
-@media (min-width: 992px) {
-  .alternator > :nth-child(odd) {
-    align-self: start;
-  }
-
-  .alternator > :nth-child(even) {
-    align-self: end;
-    flex-direction: row-reverse;
-  }
-}
-
-.alternator figure {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 0px 16px;
-  flex-wrap: wrap-reverse;
-}
-
-.alternator img {
-  max-height: 400px;
-  max-width: min(480px, 100%);
-}
 
 .bw {
   filter: saturate(0);
@@ -2182,7 +2071,6 @@ blockquote,
   object-position: center;
   background-position: center;
   background-size: cover;
-  /* margin: 1.125rem auto;*/
 }
 
 .img-thumbnail {
@@ -2202,11 +2090,7 @@ blockquote,
     float: right;
   }
 
-  /* ADDED */
-  .list.big {
-    font-size: 1.75rem;
-    font-weight: 600;
-  }
+
 
 }
 
@@ -2235,6 +2119,7 @@ blockquote,
 }
 
 
+/* * Kontakty page * */
 .contact-card {
   display: flex;
   max-width: 750px;
@@ -2263,7 +2148,7 @@ blockquote,
 
 .contact-card__body {
   flex: 2;
-  padding: 1.25rem min(1.5rem, 5%);
+  padding: var(--block-padding);
   background-color: #fff;
 }
 
@@ -2290,7 +2175,7 @@ blockquote,
 }
 
 
-@media only (max-width: 575px) {
+@media (max-width: 575px) {
   .contact-card {
     flex-direction: column;
   }
@@ -2312,20 +2197,33 @@ html:has([data-custom-dialog][open]:not([open="false"])) {
 
 /* custom dialog that isn't open, or open="false" */
 [data-custom-dialog]:is(:not([open]), [open="false"]) {
-  display: none !important;
+  /* DEV: Disabled */
+  /* display: none !important; */
 }
 
 /** DIALOG REWRITE **/
 [data-custom-dialog] {
   position: fixed;
   inset: 0;
+  margin: auto;
   z-index: 99;
-  /* backdrop */
+
   background-color: rgba(0, 0, 0, 0.2);
 }
 
-dialog::backdrop,
-dialog::-webkit-backdrop {
+.custom-dialog {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: fit-content;
+  height: fit-content;
+  max-width: calc(100% - 2em - 6px);
+  max-height: calc(100% - 2em - 6px);
+  background-color: canvas;
+  color: canvastext;
+}
+
+dialog::backdrop {
   background: rgba(0, 0, 0, 0.25);
   cursor: pointer;
 }
@@ -2545,4 +2443,47 @@ img.eko-card__icon:last-child {
   .eko-card__content {
     max-width: 60ch;
   }
+}
+
+#magazine-order-form .custom-dialog {
+  max-width: min(960px, 90%);
+}
+
+/* TODO: Refactor and organize */
+/* LOGO CAROUSEL */
+.logo-carousel {
+  width: 100%;
+  padding: 40px 0;
+  background: #fff;
+  position: relative;
+}
+
+.logo-viewport {
+  overflow: hidden;
+  width: 100%;
+  cursor: grab;
+}
+
+.logo-viewport:active {
+  cursor: grabbing;
+}
+
+.logo-track {
+  display: flex;
+  gap: 50px;
+  width: max-content;
+  will-change: transform;
+}
+
+.logo-item img {
+  height: 70px;
+  width: auto;
+  opacity: 0.85;
+  transition: transform .3s ease, opacity .3s ease;
+  pointer-events: none;
+}
+
+.logo-item:hover img {
+  transform: scale(1.05);
+  opacity: 1;
 }

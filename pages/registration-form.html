@@ -1,35 +1,37 @@
 <section>
   <div class="container">
-    <div class="wall">
-      <div class="contact-box-text">
-        <h3 class="thin">Odběr novinek Iniciativy pro dostupně bydlení</h3>
-        <p>Vyplňte níže uvedená pole pro zaslání novinek.</p>
-      </div>
-      <div class="contact-box-form">
-        <div class="contact-form">
-          <div>
-            <input data-mail-label="jmeno" name="jmeno" class="contact-form--name" type="text" placeholder="Jméno" required />
-          </div>
-          <div>
-            <input data-mail-label="email" name="email" class="contact-form--email" type="email" placeholder="E-mail" required />
-          </div>
+    <div class="wall" style="margin-top: -2rem;">
+      <h3 class="thin">Odběr novinek Iniciativy pro dostupně bydlení</h3>
+      <p>Vyplňte níže uvedená pole pro zaslání novinek.</p>
 
-          <div class="form--buttons">
-            <div class="form-check ">
-              <input type="checkbox" id="gdprInfo" name="gdprInfo" class="form-check-input" required>
-              <label for="gdprInfo" class="form-check-label">Souhlasím se zpracováním osobních údajů.
-              </label>
-            </div>
-            <button class="btn btn--primary" type="submit">REGISTROVAT</button>
-          </div>
-          <!-- <div class="g-recaptcha"></div> -->
-          <div id="messageSuccess">Vaše registrace byla úspěšně odeslána.</div>
-          <div id="messageSending">Vaše registrace se právě odesílá.</div>
-          <div id="messageFailure">Něco se pokazilo, zkuste to prosím znovu.</div>
+      <div class="row align-items-center">
+        <div class="col-md my-1">
+          <input data-mail-label="jmeno" name="jmeno" class="contact-form--name" type="text" placeholder="Jméno" autocomplete="name" required />
         </div>
+        <div class="col-md my-1">
+          <input data-mail-label="email" name="email" class="contact-form--email" type="email" placeholder="E-mail" autocomplete="email" required />
+        </div>
+      </div>
+
+      <div class="row align-items-center mt-2">
+        <div class="col-md my-1">
+          <label class="form-check-label">
+            <input type="checkbox" id="gdprInfo" name="gdprInfo" required>
+            <span>Souhlasím se zpracováním <a href="https://www.central-group.cz/storage/idb/ke-stazeni/Informace-o-zpracovani-osobnich-udaju.pdf" target="_blank">osobních údajů</a>.</span>
+          </label>
+        </div>
+        <div class="col-md-auto my-1">
+          <button class="btn btn--primary" type="submit">REGISTROVAT</button>
+        </div>
+      </div>
+
+      <!-- <div class="g-recaptcha"></div> -->
+
+      <div class="form-messages">
+        <div class="form-message" id="messageSending">Vaše registrace se právě odesílá.</div>
+        <div class="form-message" id="messageSuccess">Vaše registrace byla úspěšně odeslána.</div>
+        <div class="form-message" id="messageFailure">Něco se pokazilo, zkuste to prosím znovu.</div>
       </div>
     </div>
   </div>
 </section>
-
-<link rel="stylesheet" type="text/css" href="./storage/IDB/css/registration-form.css">

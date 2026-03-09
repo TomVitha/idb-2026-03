@@ -13,7 +13,8 @@
     "blocks": [
       { "src": "idb-meta", "type": "meta" },
       { "src": "index" },
-      { "src": "registration-form" }
+      { "src": "registration-form" },
+      { "src": "form-order" }
     ]
   },
   "poradenstvi-financovani": {

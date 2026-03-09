@@ -1,0 +1,47 @@
+<!-- TODO: Replace with native <dialog> -->
+<div id="magazine-order-form" data-custom-dialog hidden>
+  <div class="custom-dialog">
+    <div class="wall">
+      <a href="#" class="dialog-close" data-close-this-custom-dialog>×</a>
+      <p>Prosíme vyplňte níže uvedená pole pro zaslání praktické metodiky a magazínu na Vaši adresu.*</p>
+      <div class="row">
+        <div class="col-md-6 my-1">
+          <input data-mail-label="jmeno" name="jmeno" type="text" placeholder="Jméno" autocomplete="given-name" autocapitalize="words" required />
+        </div>
+        <div class="col-md-6 my-1">
+          <input data-mail-label="prijmeni" name="prijmeni" type="text" placeholder="Příjmení" autocomplete="family-name" autocapitalize="words" required />
+        </div>
+        <div class="col-md-6 my-1">
+          <input data-mail-label="mesto" name="mesto" type="text" placeholder="Město" autocomplete="address-level2" required />
+        </div>
+        <div class="col-md-6 my-1">
+          <input data-mail-label="psc" name="psc" type="text" placeholder="PSČ" autocomplete="postal-code" pattern="[0-9]{3}[ ]?[0-9]{2}" required />
+        </div>
+        <div class="col-md-6 my-1">
+          <input data-mail-label="ulice" name="ulice" type="text" placeholder="Ulice a číslo popisné" autocomplete="address-line1" required />
+        </div>
+        <div class="col-md-6 my-1">
+          <input data-mail-label="email" name="email" type="email" placeholder="E-mail" autocomplete="email" required />
+        </div>
+      </div>
+      <div class="row align-items-center mt-2">
+        <div class="col-md my-1">
+          <label class="form-check-label">
+            <input type="checkbox" id="gdprInfo" name="gdprInfo" required>
+            <span>Souhlasím se zpracováním <a href="https://www.central-group.cz/storage/idb/ke-stazeni/Informace-o-zpracovani-osobnich-udaju.pdf" target="_blank">osobních údajů</a>.</span>
+          </label>
+        </div>
+        <div class="col-md-auto my-1">
+          <button class="btn btn--primary" type="submit">ODESLAT</button>
+        </div>
+      </div>
+      <div class="g-recaptcha"></div>
+      <small>Metodiku zasíláme pouze na území České republiky.</small>
+      <div class="form-messages">
+        <div class="form-message" id="messageSending">Vaše objednávka se právě odesílá.</div>
+        <div class="form-message" id="messageSuccess">Vaše objednávka byla úspěšně odeslána.</div>
+        <div class="form-message" id="messageFailure">Něco se pokazilo, zkuste to prosím znovu.</div>
+      </div>
+    </div>
+  </div>
+</div>
